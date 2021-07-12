@@ -1,0 +1,14 @@
+#alertExample {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+div {
+    margin: 10px;
+}
