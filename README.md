@@ -1,1 +1,6 @@
-Completed Case
+## To Run App:
+
+```
+npm start
+``` 
+
