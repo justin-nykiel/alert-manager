@@ -4,14 +4,17 @@ import AlertExample from './components/AlertExample'
 import React from 'react'
 
 
+export const DispatchContext = React.createContext();
+
+
 function App() {
   const [state, dispatch] =  useAlertReducer()
 
   return (
-    <div className="App">
-      <AlertManager alerts={ state }/>
-      <AlertExample dispatch={ dispatch }/>
-    </div>
+    <DispatchContext.Provider value={dispatch}>
+          <AlertManager alerts={state}/>
+          <AlertExample/>
+    </DispatchContext.Provider>
   )
 }
 

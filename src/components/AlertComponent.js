@@ -1,15 +1,18 @@
-import React from 'react'
-import {Link} from '@material-ui/core'
+import React, {useContext} from 'react'
+import {Link, Zoom} from '@material-ui/core'
 import {Alert, AlertTitle} from '@material-ui/lab'
+import  {DispatchContext}  from '../App.js'
+import '../css/AlertComponent.css'
 
 function AlertComponent({ alert }) {
-  const component = <Alert severity={alert.alertType || "info"}><AlertTitle>{alert.alertTitle}</AlertTitle>{alert.text}</Alert>
+  const alertDispatch = useContext(DispatchContext)
+  // const component = <Zoom in={true}><Alert onClose={() => {alertDispatch({ type: 'remove', payload: {id:alert.id, alertType:alert.alertType }})}} className={alert.className} severity={alert.alertType || "info"} ><AlertTitle>{alert.alertTitle}</AlertTitle>{alert.text}</Alert></Zoom>
   if(alert.link){
     return (
-      <Link target="_blank" rel="nofollow" href={alert.link}>{component}</Link>
+      <Zoom in={true}><Alert onClose={() => {alertDispatch({ type: 'remove', payload: {id:alert.id, alertType:alert.alertType }})}} className={alert.className} severity={alert.alertType || "info"} ><AlertTitle className={"alert"}><Link target="_blank" rel="nofollow" href={alert.link}>{alert.alertTitle}</Link></AlertTitle>{alert.text}</Alert></Zoom>
     )
   } 
-  return component
+  return <Zoom in={true}><Alert onClose={() => {alertDispatch({ type: 'remove', payload: {id:alert.id, alertType:alert.alertType }})}} className={alert.className} severity={alert.alertType || "info"} ><AlertTitle>{alert.alertTitle}</AlertTitle>{alert.text}</Alert></Zoom>
 }
 
 export default AlertComponent

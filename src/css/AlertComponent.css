@@ -1,0 +1,7 @@
+.MuiAlert-message {
+    overflow: auto;
+}
+
+.MuiAlert-root{
+    opacity: 0.9;
+}
