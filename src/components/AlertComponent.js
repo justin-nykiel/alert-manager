@@ -5,7 +5,7 @@ import  {DispatchContext}  from '../App.js'
 import '../css/AlertComponent.css'
 
 function AlertComponent({ alert }) {
-  
+  const alertDispatch = useContext(DispatchContext)
   if(alert.link){
     return (
       <Zoom in={true}><Alert onClose={() => {alertDispatch({ type: 'remove', payload: {id:alert.id, alertType:alert.alertType }})}} className={alert.className} severity={alert.alertType || "info"} ><AlertTitle className={"alert"}><Link target="_blank" rel="nofollow" href={alert.link}>{alert.alertTitle}</Link></AlertTitle>{alert.text}</Alert></Zoom>
